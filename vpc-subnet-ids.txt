@@ -1,0 +1,19 @@
+
+private_subnets = [
+  "subnet-00aded5cbf0793f8b",
+  "subnet-02d35cfad0c5144c2",
+]
+public_subnets = [
+  "subnet-0d45db3f21d2803a2",
+  "subnet-03b68818ba06e7a7f",
+]
+vpc_id_ = "vpc-031fb27ee523fe034"
+
+
+eksctl create iamserviceaccount \
+  --cluster=my-eks-201 \
+  --namespace=kube-system \
+  --name=cluster-autoscaler \
+  --attach-policy-arn=arn:aws:iam::058107942271:policy/AmazonEKSClusterAutoscalerPolicy \
+  --override-existing-serviceaccounts \
+  --approve
